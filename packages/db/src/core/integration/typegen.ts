@@ -19,7 +19,7 @@ declare module 'astro:db' {
 	export const dbUrl: string;
 
 ${Object.entries(tables)
-	.map(([name, collection]) => generateTableType(name, collection))
+	.map(([name, table]) => generateTableType(name, table))
 	.join('\n')}
 }
 `;
@@ -33,8 +33,8 @@ ${Object.entries(tables)
 	await writeFile(new URL(DB_TYPES_FILE, dotAstroDir), content);
 }
 
-function generateTableType(name: string, collection: DBTable): string {
-	const sanitizedColumnsList = Object.entries(collection.columns)
+function generateTableType(name: string, table: DBTable): string {
+	const sanitizedColumnsList = Object.entries(table.columns)
 		// Filter out deprecated columns from the typegen, so that they don't
 		// appear as queryable fields in the generated types / your codebase.
 		.filter(([key, val]) => !val.schema.deprecated);
