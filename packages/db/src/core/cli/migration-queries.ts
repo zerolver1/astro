@@ -7,7 +7,6 @@ import { hasPrimaryKey } from '../../runtime/index.js';
 import {
 	getCreateIndexQueries,
 	getCreateTableQuery,
-	getDropTableIfExistsQuery,
 	getModifiers,
 	getReferencesConfig,
 	hasDefault,
