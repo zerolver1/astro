@@ -338,6 +338,9 @@ importers:
 
   examples/minimal:
     dependencies:
+      '@astrojs/vercel':
+        specifier: ^7.4.0
+        version: link:../../packages/integrations/vercel
       astro:
         specifier: ^4.5.9
         version: link:../../packages/astro
